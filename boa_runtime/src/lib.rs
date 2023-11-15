@@ -206,7 +206,7 @@ pub(crate) mod test {
                     // TODO: extract to a file
                     forward_val(
                         context,
-                        r#"
+                        r"
                         function equals(a, b) {
                             if (Array.isArray(a) && Array.isArray(b)) {
                                 return arrayEquals(a, b);
@@ -219,7 +219,7 @@ pub(crate) mod test {
                                 a.length === b.length &&
                                 a.every((val, index) => equals(val, b[index]));
                         }
-                    "#,
+                    ",
                     )
                     .expect("failed to evaluate test harness");
                 }
