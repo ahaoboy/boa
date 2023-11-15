@@ -66,6 +66,10 @@
 <a href="#66" id="66">66</a>
 <a href="#67" id="67">67</a>
 <a href="#68" id="68">68</a>
+<a href="#69" id="69">69</a>
+<a href="#70" id="70">70</a>
+<a href="#71" id="71">71</a>
+<a href="#72" id="72">72</a>
 </pre></div><pre class="rust"><code><span class="doccomment">//! Boa&#39;s implementation of JavaScript&#39;s `console` Web API object.
 //!
 //! The `console` object can be accessed from any global object.
@@ -116,21 +120,25 @@
 
         context
             .register_global_property(<span class="macro">js_string!</span>(<span class="string">&quot;__boa_print&quot;</span>), func, Attribute::default())
-            .unwrap();
+            .expect(<span class="string">&quot;register_global_property __boa_print error&quot;</span>);
         <span class="kw">let </span>core_str = <span class="macro">include_str!</span>(<span class="string">&quot;./deno-scripts/00_core.js&quot;</span>);
         <span class="kw">let </span>console_str = <span class="macro">include_str!</span>(<span class="string">&quot;./deno-scripts/01_console.js&quot;</span>);
         <span class="kw">for </span>s <span class="kw">in </span>[core_str, console_str] {
             <span class="comment">// Execute code using anonymous arrow functions to avoid polluting the global scope.
             </span><span class="kw">let </span>bytes = <span class="macro">format!</span>(<span class="string">r#&quot;(()=&gt;{{{s}}})()&quot;#</span>).into_bytes();
             <span class="kw">let </span>source = Source::from_bytes(<span class="kw-2">&amp;</span>bytes);
-            context.eval(source).expect(<span class="string">&quot;eval deno-console script error&quot;</span>);
+            context
+                .eval(source)
+                .expect(<span class="string">&quot;eval deno-console script error&quot;</span>);
         }
 
         <span class="kw">let </span>binding = context
             .global_object()
             .get(<span class="macro">js_string!</span>(<span class="string">&quot;console&quot;</span>), context)
             .expect(<span class="string">&quot;get global console JsValue error&quot;</span>);
-        <span class="kw">let </span>console = binding.as_object().expect(<span class="string">&quot;get global console JsObject error&quot;</span>);
+        <span class="kw">let </span>console = binding
+            .as_object()
+            .expect(<span class="string">&quot;get global console JsObject error&quot;</span>);
         console.to_owned()
     }
 }
