@@ -523,7 +523,7 @@
                     // TODO: extract to a file
                     </span>forward_val(
                         context,
-                        <span class="string">r#&quot;
+                        <span class="string">r&quot;
                         function equals(a, b) {
                             if (Array.isArray(a) &amp;&amp; Array.isArray(b)) {
                                 return arrayEquals(a, b);
@@ -536,7 +536,7 @@
                                 a.length === b.length &amp;&amp;
                                 a.every((val, index) =&gt; equals(val, b[index]));
                         }
-                    &quot;#</span>,
+                    &quot;</span>,
                     )
                     .expect(<span class="string">&quot;failed to evaluate test harness&quot;</span>);
                 }
