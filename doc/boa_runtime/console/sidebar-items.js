@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["LogMessage"],"fn":["formatter","logger"],"struct":["Console"]};
+window.SIDEBAR_ITEMS = {"fn":["print"],"struct":["Console"]};
