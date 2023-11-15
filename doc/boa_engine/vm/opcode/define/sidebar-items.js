@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["class","own_property"],"struct":["CreateGlobalFunctionBinding","DefInitVar","DefVar","PutLexicalValue"]};

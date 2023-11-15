@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["WorkerResult"],"fn":["agent_obj","create_realm","detach_array_buffer","eval_script","gc","monotonic_now","register_js262","register_js262_worker","sleep"],"struct":["WorkerHandles"],"type":["WorkerHandle"]};
